@@ -9,7 +9,7 @@
 
     <PropertyGroup>
         <Copyright>sta.blockhead, Ascension Game Dev</Copyright>
-        <PackageIcon>websocket-sharp_logo.png</PackageIcon>
+        <PackageIcon>websocket-sharp_icon.png</PackageIcon>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/AscensionGameDev/websocket-sharp</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
