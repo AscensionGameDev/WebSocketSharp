@@ -27,7 +27,7 @@
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
-      <None Include="..\websocket-sharp_logo.png">
+      <None Include="..\websocket-sharp_icon.png">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
