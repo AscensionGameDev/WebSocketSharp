@@ -11,10 +11,10 @@
         <Copyright>sta.blockhead, Ascension Game Dev</Copyright>
         <PackageIcon>websocket-sharp_icon.png</PackageIcon>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-        <PackageProjectUrl>https://github.com/AscensionGameDev/websocket-sharp</PackageProjectUrl>
+        <PackageProjectUrl>git@github.com:AscensionGameDev/WebSocketSharp</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/AscensionGameDev/websocket-sharp.git</RepositoryUrl>
+        <RepositoryUrl>git@github.com:AscensionGameDev/WebSocketSharp.git</RepositoryUrl>
         <VersionPrefix>1.0.0</VersionPrefix>
     </PropertyGroup>
 
