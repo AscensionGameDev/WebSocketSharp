@@ -5,10 +5,14 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>AscensionGameDev.WebSocketSharp</PackageId>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>websocket-sharp.snk</AssemblyOriginatorKeyFile>
     <Description>A C# implementation of the WebSocket protocol client and server</Description>
-    <PackageLicenseExpression />
+    <AssemblyName>WebSocketSharp</AssemblyName>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
 
