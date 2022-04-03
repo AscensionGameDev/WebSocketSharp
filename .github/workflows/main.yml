@@ -1,0 +1,55 @@
+name: WebSocketSharp/main
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ASSEMBLY_VERSION: '1.0.0.${{ github.run_number }}'
+      ARTIFACT_NAME: 'WebSocketSharp.1.0.0.${{ github.run_number }}'
+    outputs:
+      artifact_name: '${{ env.ARTIFACT_NAME }}'
+      nupkg_base_name: 'AscensionGameDev.WebSocketSharp.${{ env.ASSEMBLY_VERSION }}-beta'
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.*
+    - name: Restore dependencies
+      run: dotnet restore
+    - id: build_debug
+      name: Build (Debug)
+      run: dotnet build --no-restore -c Debug -p:VersionPrefix=$ASSEMBLY_VERSION -p:VersionSuffix=beta-debug
+    - id: build_release
+      name: Build (Release)
+      run: dotnet build --no-restore -c Release -p:VersionPrefix=$ASSEMBLY_VERSION -p:VersionSuffix=beta
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: '${{ env.ARTIFACT_NAME }}'
+        path: 'WebSocketSharp/bin/*'
+        if-no-files-found: error
+        retention-days: 1
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - uses: actions/checkout@v2
+    - name: Tests (main)
+      run: dotnet test --verbosity normal
+  publish:
+    runs-on: ubuntu-latest
+    needs: [build, test]
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2.0.7
+        with:
+          name: '${{ needs.build.outputs.artifact_name }}'
+      - name: Publish Release nupkg
+        run: dotnet nuget push 'Release/${{ needs.build.outputs.nupkg_base_name }}.nupkg' --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+      - name: Publish Debug nupkg
+        run: dotnet nuget push 'Debug/${{ needs.build.outputs.nupkg_base_name }}-debug.nupkg' --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
