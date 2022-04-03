@@ -13,22 +13,6 @@
     <AssemblyOriginatorKeyFile>websocket-sharp.snk</AssemblyOriginatorKeyFile>
     <Description>A C# implementation of the WebSocket protocol client and server</Description>
     <AssemblyName>WebSocketSharp</AssemblyName>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\LICENSE.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\websocket-sharp_logo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
 
 </Project>
